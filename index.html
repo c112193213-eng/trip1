@@ -41,7 +41,8 @@ input[type=date],input[type=text]{font:inherit;color:var(--ink);background:var(-
 .flight.go{background:#EBF3FC}.flight.back{background:#FFECE8}
 .flight+.flight{margin-top:14px}
 .go .dash span{background:#EBF3FC}.back .dash span{background:#FFECE8}
-.flight .route div{font-size:14px}
+.flight .route div{font-size:15px;line-height:1.35}
+.term{display:block;font-size:13px}
 .flight .route{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:center}
 .flight .route div{flex:0 0 auto}
 .flight .code{font-size:30px;font-weight:700;display:block;line-height:1.1}
@@ -184,6 +185,46 @@ footer{text-align:center;font-size:13px;margin-top:30px}
 .fb1{font-size:21px;font-weight:700;display:flex;align-items:baseline;gap:8px}
 .fb1 small{font-size:15px;font-weight:400}
 .fb2{font-size:17px;font-weight:700;letter-spacing:1px}
+.tl h4 .jet,.modal h3 .jet{display:inline-block;width:1.7em;height:.85em;vertical-align:-.1em}
+.hl{color:#E8675A}
+.st{width:1.2em;height:1.2em;vertical-align:-.22em;margin-right:6px}
+.bl{width:1em;height:1em;vertical-align:-.14em;margin-right:7px}
+.ck{display:flex;align-items:center;gap:12px;padding:8px 0;cursor:pointer;font-size:17px;line-height:1.4}
+.ck input{appearance:none;-webkit-appearance:none;flex:0 0 26px;width:26px;height:26px;border:var(--line);border-radius:9px;background:var(--paper);margin:0;display:grid;place-items:center;cursor:pointer}
+.ck input:checked{background:var(--green)}
+.ck input:checked::after{content:"";width:6px;height:12px;border:solid var(--ink);border-width:0 3px 3px 0;transform:rotate(40deg) translate(-1px,-1px)}
+.ck input:checked+span{text-decoration:line-through;opacity:.55}
+.hbanner{position:relative;aspect-ratio:4/3;border:var(--line);border-radius:18px;overflow:hidden;background:var(--sky);margin-bottom:14px}
+.hbanner .hfall{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12px;font-size:18px;font-weight:700;letter-spacing:1px}
+.hbanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+.hname{margin:0;min-width:0;font-size:23px;line-height:1.3;letter-spacing:1px}
+.hname small{display:block;margin-top:2px;font-size:14px;font-weight:400;letter-spacing:.5px;opacity:.7}
+.gmap{flex:0 0 auto;min-width:150px;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;background:var(--green);border:var(--line);border-radius:999px;padding:8px 18px;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.3;box-shadow:2px 3px 0 var(--ink);transform:rotate(2deg);transition:transform .2s}
+.gmap svg{flex:0 0 18px;width:18px;height:18px}
+.gmap:active{transform:scale(.94)}
+.hinfo{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
+.hinfo>div{display:grid;grid-template-columns:38px 1fr;column-gap:10px;align-items:center;min-width:0;background:var(--paper);border:var(--line);border-radius:18px;padding:8px 10px}
+.hinfo>div.wide{grid-column:1/-1}
+.hi{grid-row:1/3;width:38px;height:38px;border:2.5px solid var(--ink);border-radius:50%;display:grid;place-items:center}
+.hi svg{width:22px;height:22px;display:block}
+.hi.c1{background:var(--coral)}.hi.c2{background:var(--yellow)}.hi.c3{background:var(--sky)}.hi.c4{background:var(--green)}
+.hinfo dt{grid-column:2;font-size:13px;line-height:1.3;opacity:.65}
+.hinfo dd{grid-column:2;margin:0;font-size:16px;line-height:1.4;word-break:break-word}
+.shotopen{font:inherit;font-size:16px;color:var(--ink);width:100%;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;background:var(--yellow);border:var(--line);border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.shotopen svg{width:22px;height:22px;flex:0 0 22px}
+.shotopen:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.gmap,.shotopen{transition:transform .25s cubic-bezier(.3,1.6,.5,1),box-shadow .2s}
+.hnote{display:block;margin-top:2px;font-size:14px;opacity:.75}
+@media (hover:hover){
+.gmap:hover{transform:rotate(-2deg) translateY(-3px) scale(1.05)}
+.shotopen:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
+}
+.gmap:active{transform:scale(.94)}
+.shotopen:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+@media (prefers-reduced-motion:reduce){.gmap,.shotopen{transition:none}}
+.modal .drop{margin-top:10px}
+@media (max-width:380px){.hinfo{gap:12px 8px}.hinfo>div{grid-template-columns:32px 1fr;column-gap:8px;padding:7px 8px}.hi{width:32px;height:32px}.hi svg{width:18px;height:18px}.hinfo dd{font-size:15px}.hname{font-size:21px}}
 /* motion */
 .plane{animation:fly 9s linear infinite}
 @keyframes fly{0%{transform:translate(-90px,16px)}50%{transform:translate(160px,-6px)}100%{transform:translate(460px,16px)}}
@@ -286,9 +327,9 @@ footer{text-align:center;font-size:13px;margin-top:30px}
   <div class="card flight go">
     <div class="fband"><span class="fb1">去程<small>2/11</small></span><span class="fb2">星宇航空 JX362</span></div>
     <div class="route">
-      <div><span class="code">KHH</span>高雄小港機場</div>
+      <div><span class="code">KHH</span>高雄國際機場<small class="term">（第一航廈）</small></div>
       <div class="mid"><i class="cl"></i><i class="cl cl2"></i><div class="dash"><span><svg class="jet" viewBox="0 0 48 24" stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 8l-4-7h7l6 7z" fill="#F2A497"/><path d="M22 16l-4 7h7l6-7z" fill="#F2A497"/><path d="M6 11L2 3h7l5 8z" fill="#F2A497"/><path d="M4 12q0-5 6-5h26q9 0 9 5t-9 5H10q-6 0-6-5z" fill="#FFFCF6"/><circle cx="30" cy="11.5" r="1.5" fill="#3E3A39" stroke="none"/><circle cx="36" cy="11.5" r="1.5" fill="#3E3A39" stroke="none"/><circle cx="42" cy="11.5" r="1.5" fill="#3E3A39" stroke="none"/></svg></span></div></div>
-      <div><span class="code">OKA</span>沖繩那霸機場</div>
+      <div><span class="code">OKA</span>沖繩那霸國際機場<small class="term">（第一航廈）</small></div>
     </div>
     <div class="ftime">
       <div><small>起飛</small><b>17:15</b><span>2/11 四</span></div>
@@ -298,9 +339,9 @@ footer{text-align:center;font-size:13px;margin-top:30px}
   <div class="card flight back">
     <div class="fband"><span class="fb1">回程<small>2/17</small></span><span class="fb2">星宇航空 JX363</span></div>
     <div class="route">
-      <div><span class="code">OKA</span>沖繩那霸機場</div>
+      <div><span class="code">OKA</span>沖繩那霸國際機場<small class="term">（第一航廈）</small></div>
       <div class="mid" style="--d:-2.2s"><i class="cl"></i><i class="cl cl2"></i><div class="dash"><span><svg class="jet" viewBox="0 0 48 24" stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 8l-4-7h7l6 7z" fill="#F2A497"/><path d="M22 16l-4 7h7l6-7z" fill="#F2A497"/><path d="M6 11L2 3h7l5 8z" fill="#F2A497"/><path d="M4 12q0-5 6-5h26q9 0 9 5t-9 5H10q-6 0-6-5z" fill="#FFFCF6"/><circle cx="30" cy="11.5" r="1.5" fill="#3E3A39" stroke="none"/><circle cx="36" cy="11.5" r="1.5" fill="#3E3A39" stroke="none"/><circle cx="42" cy="11.5" r="1.5" fill="#3E3A39" stroke="none"/></svg></span></div></div>
-      <div><span class="code">KHH</span>高雄小港機場</div>
+      <div><span class="code">KHH</span>高雄國際機場<small class="term">（第一航廈）</small></div>
     </div>
     <div class="ftime">
       <div><small>起飛</small><b>21:00</b><span>2/17 三</span></div>
@@ -311,14 +352,20 @@ footer{text-align:center;font-size:13px;margin-top:30px}
 <section id="stay">
   <div class="sh"><h2>住宿資訊</h2></div>
   <div class="card stay">
-    <svg viewBox="0 0 80 50" width="80" height="50" aria-hidden="true" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" style="display:block"><rect x="14" y="14" width="52" height="32" rx="6" fill="#A8D3E6"/><path d="M8 18l32-14 32 14z" fill="#F2A497"/><rect x="33" y="28" width="14" height="18" fill="#F6D27A"/></svg>
-    <label>飯店名稱<input type="text" data-k="hn" placeholder="填入飯店名稱"></label>
-    <label>地址／最近車站<input type="text" data-k="ha" placeholder="例：單軌電車 ○○站"></label>
-    <label>入住・退房日期<input type="text" data-k="hd" placeholder="例：2/11 入住"></label>
-    <label>訂房畫面</label>
-    <label class="drop" id="drop" for="shotIn"><span id="shotHint">點這裡放上訂房截圖<br><small>（之後再放也可以）</small></span></label>
-    <input type="file" accept="image/*" id="shotIn" hidden>
-    <div id="shotBtns" hidden><label class="shotbtn" for="shotIn" style="display:inline-block">更換圖片</label><button class="shotbtn" id="shotDel" type="button">移除</button></div>
+    <div class="hbanner">
+      <div class="hfall">Minn 那霸美榮橋</div>
+      <img src="minn.jpg" alt="Minn 那霸美榮橋" referrerpolicy="no-referrer" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <div class="hhead">
+      <h3 class="hname">Minn 那霸美榮橋<small>Minn Naha Miebashi</small></h3>
+      <a class="gmap" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Minn%20Naha%20Miebashi"><svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><span>Google Map ↗</span></a>
+    </div>
+    <dl class="hinfo">
+      <div><span class="hi c1"><svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M8 3v4M16 3v4"/></svg></span><dt>日期</dt><dd>2/11 ～ 2/17（6 晚）</dd></div>
+      <div><span class="hi c2"><svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><dt>退房</dt><dd>上午 10:00 前</dd></div>
+      <div class="wide"><span class="hi c1"><svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><dt>地址</dt><dd>2 Chome-2番地14 Maejima, Naha, Okinawa 900-0016 日本<span class="hnote">（單軌電車美榮橋站步行約 4 分鐘）</span></dd></div>
+    </dl>
+    <button class="shotopen" id="shotOpen" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>訂房畫面</button>
   </div>
 </section>
 <section id="plan">
@@ -339,13 +386,18 @@ footer{text-align:center;font-size:13px;margin-top:30px}
 <footer>いってらっしゃい ✿ 旅途愉快</footer>
 </main>
 
+<div class="ov" id="shotOv" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="shotT"><button class="x" id="shotX" type="button" aria-label="關閉">✕</button><h3 id="shotT">訂房畫面</h3>
+    <label class="drop" id="drop" for="shotIn"><span id="shotHint">點這裡放上訂房截圖<br><small>（之後再放也可以）</small></span></label>
+    <input type="file" accept="image/*" id="shotIn" hidden>
+    <div id="shotBtns" hidden><label class="shotbtn" for="shotIn" style="display:inline-block">更換圖片</label><button class="shotbtn" id="shotDel" type="button">移除</button></div>
+</div></div>
 <div class="ov" id="ov" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="x" id="mx" type="button" aria-label="關閉">✕</button><div id="mb"></div></div></div>
 <script>
 var DAYS=[
-{n:"第一天",date:"2/11 四",title:"高雄 ✈ 那霸",icon:"plane",items:[
- {"t": "高雄機場 → 那霸機場", "tags": [["飛機", "fly"]], "nomap": 1, "note": "準備好護照和Visit Japan Web", "detail": "開開心心出門度假~旅途順遂!"},
- {"t": "飯店", "tags": [["單軌電車", "rail"]], "note": "先辦理入住和放行李，肚子餓餓去吃晚餐。"},
- {"t": "暖暮拉麵", "tags": [["步行", "walk"], ["單軌電車", "rail"]], "note": "依飯店位置步行或搭單軌電車前往。熱門店家可能要排隊，出發前先確認營業時間。"}]},
+{n:"第一天",date:"2/11 四",title:"高雄~沖繩",icon:"plane",items:[
+ {"t": "高雄國際機場 → 那霸國際機場", "tags": [["飛機", "fly"]], "nomap": 1, "note": "開開心心出門度假~旅途順遂!", "detail": "<b class='hl'><svg class='st' viewBox='0 0 24 24' aria-hidden='true'><path d='M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 6 21l1.3-6.8-5-4.7 6.8-.8z' fill='#F6D27A' stroke='#3E3A39' stroke-width='2' stroke-linejoin='round'/></svg>要準備的東西</b><label class='ck'><input type='checkbox' data-ck='air-1'><span>護照</span></label><label class='ck'><input type='checkbox' data-ck='air-2'><span>Visit Japan Web 的 QR Code（先截圖存起來）</span></label><label class='ck'><input type='checkbox' data-ck='air-3'><span>星宇航空登機證</span></label>"},
+ {"t": "ポーたま沖繩豬肉蛋飯糰", "tags": [["步行", "walk"]], "note": "國內線航廈 1 樓<br>營業時間 07:00～21:00"},
+ {"t": "飯店 check in", "tags": [["單軌電車", "rail"]], "note": "搭單軌電車到美榮橋站，再到飯店辦理入住和放行李。"}]},
 {n:"第二天",date:"2/12 五",title:"瀨長島",icon:"sea",items:[
  {"t": "飯店 → 瀨長島", "tags": [["巴士", "bus"], ["計程車", "taxi"]], "note": "可從國際通搭東京巴士的「ウミカジライナー」前往，也可搭計程車。平日班次較少，請先查最新時刻，備案用計程車。"},
  {"t": "瀨長島海風露台", "tags": [["步行", "walk"]], "note": "白色建築像沖繩小希臘。這裡吃幸福鬆餅和蝦蝦飯，邊看海邊逛街。"},
@@ -368,7 +420,7 @@ var DAYS=[
  {"t": "牧志市場（買莎翁）", "tags": [["單軌電車", "rail"], ["步行", "walk"]], "note": "搭單軌電車到「牧志站」，再步行約 5～10 分鐘。市場內逛逛，順便買莎翁。"},
  {"t": "國際通（吃飯糰）", "tags": [["步行", "walk"]], "note": "牧志市場步行就能走到國際通，吃飯糰、逛伴手禮店，累了就搭單軌電車回飯店。"}]},
 {n:"第七天",date:"2/17 三",title:"退房・水族館・回家",icon:"plane",items:[
- {"t": "check out", "tags": [["步行", "walk"]], "note": "辦理退房，行李可先請飯店寄放。回程航班 21:00 起飛，這天時間很充裕。"},
+ {"t": "check out", "tags": [["步行", "walk"]], "note": "上午 10:00 前退房，行李可先請飯店寄放。回程航班 21:00 起飛，這天時間很充裕。"},
  {"t": "DMM Kariyushi 水族館", "tags": [["巴士", "bus"], ["計程車", "taxi"]], "note": "位在那霸南邊的豐崎地區，可從國際通搭東京巴士前往，或搭計程車，先查最新時刻。"},
  {"t": "百貨", "tags": [["步行", "walk"]], "note": "水族館附近有 ASHIBINAA 和イーアス沖縄豊崎（Eas Okinawa Toyosaki）等購物處，可擇一逛，順便買伴手禮。"},
  {"t": "前往那霸機場", "tags": [["巴士", "bus"], ["計程車", "taxi"]], "note": "從豐崎到機場約 15～20 分鐘車程。航班 21:00 起飛，建議 18:00 前後到機場辦理登機，行李記得拿齊。"},
@@ -403,9 +455,9 @@ var cur=0;
 function show(i){
   cur=i;moveRunner(i);var d=DAYS[i];
   [].forEach.call(tabs.children,function(b,j){b.setAttribute("aria-selected",j===i)});
-  var h='<div class="dayhead">'+ICONS[d.icon]+'<h3>'+d.n+'・'+d.date+'<br>'+d.title.replace('✈',PLN)+'</h3></div><ul class="tl">';
+  var h='<div class="dayhead">'+ICONS[d.icon]+'<h3>'+d.n+'・'+d.date+'<br>'+d.title.replace(/[✈~]/,PLN)+'</h3></div><ul class="tl">';
   d.items.forEach(function(it,k){
-    h+='<li'+(it.must?' class="must"':'')+'><div class="card" role="button" tabindex="0" data-k="'+k+'"><h4>'+it.t+(it.must?'<span class="must-b">必去</span>':'')+(it.rec?'<span class="rec-b">推薦</span>':'')+'</h4>'+
+    h+='<li'+(it.must?' class="must"':'')+'><div class="card" role="button" tabindex="0" data-k="'+k+'"><h4>'+it.t.replace('~',PLN)+(it.must?'<span class="must-b">必去</span>':'')+(it.rec?'<span class="rec-b">推薦</span>':'')+'</h4>'+
     it.tags.map(function(g){return '<span class="tag t-'+g[1]+'">'+g[0]+'</span>'}).join('')+'<p>'+it.note+'</p></div></li>';
   });
   panel.innerHTML=h+'</ul>';
@@ -414,16 +466,17 @@ function show(i){
 show(0);
 
 /* card detail */
-var MAPQ=[["暖暮","暖暮拉麵 那覇"],["海風露台","瀬長島ウミカジテラス"],["日落公園","瀬長島サンセットパーク"],["首里城","首里城公園"],["達摩寺","だるま寺 西来院 那覇"],["識名園","識名園"],["波上宮","波上宮"],["ASHIBINAA","沖縄アウトレットモールあしびなー"],["牧志市場","牧志公設市場"],["國際通","国際通り 那覇"],["DMM","DMMかりゆし水族館"],["百貨","那覇メインプレイス"],["機場","那覇空港"]];
+var MAPQ=[["ポーたま","ポーたま 那覇空港国内線到着ロビー店"],["暖暮","暖暮拉麵 那覇"],["海風露台","瀬長島ウミカジテラス"],["日落公園","瀬長島サンセットパーク"],["首里城","首里城公園"],["達摩寺","だるま寺 西来院 那覇"],["識名園","識名園"],["波上宮","波上宮"],["ASHIBINAA","沖縄アウトレットモールあしびなー"],["牧志市場","牧志公設市場"],["國際通","国際通り 那覇"],["DMM","DMMかりゆし水族館"],["百貨","那覇メインプレイス"],["機場","那覇空港"],["飯店","Minn Naha Miebashi"],["check out","Minn Naha Miebashi"]];
 function mapQ(t){for(var i=0;i<MAPQ.length;i++)if(t.indexOf(MAPQ[i][0])>-1)return MAPQ[i][1];return null}
 var ov=document.getElementById("ov"),mb=document.getElementById("mb"),lastCard=null;
 function openCard(k,el){
   var d=DAYS[cur],it=d.items[k],q=mapQ(it.t);
   lastCard=el;
-  mb.innerHTML='<span class="when">'+d.n+'・'+d.date+'</span><h3 id="mt">'+it.t+(it.must?'<span class="must-b">必去</span>':'')+(it.rec?'<span class="rec-b">推薦</span>':'')+'</h3>'+
+  mb.innerHTML='<span class="when">'+d.n+'・'+d.date+'</span><h3 id="mt">'+it.t.replace("~",PLN)+(it.must?'<span class="must-b">必去</span>':'')+(it.rec?'<span class="rec-b">推薦</span>':'')+'</h3>'+
     '<div>'+it.tags.map(function(g){return '<span class="tag t-'+g[1]+'">'+g[0]+'</span>'}).join('')+'</div>'+
     '<p>'+(it.detail||it.note)+'</p>'+
     (q&&!it.nomap?'<a class="go" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)+'">在 Google 地圖查看 ↗</a>':'');
+  [].forEach.call(mb.querySelectorAll("input[data-ck]"),function(c){var k="okw-ck-"+c.dataset.ck;c.checked=store.get(k)==="1";c.onchange=function(){store.set(k,c.checked?"1":"0")}});
   ov.hidden=false;document.body.style.overflow="hidden";document.getElementById("mx").focus();
 }
 function closeCard(){ov.hidden=true;document.body.style.overflow="";if(lastCard)lastCard.focus()}
@@ -486,6 +539,13 @@ shotIn.onchange=function(){
   img.src=url;shotIn.value="";
 };
 document.getElementById("shotDel").onclick=function(){showShot(null);try{localStorage.removeItem("okw-shot")}catch(e){}};
+/* hotel screenshot popup */
+(function(){var o=document.getElementById("shotOv"),bt=document.getElementById("shotOpen"),x=document.getElementById("shotX");
+function openS(){o.hidden=false;document.body.style.overflow="hidden";x.focus()}
+function closeS(){o.hidden=true;document.body.style.overflow="";bt.focus()}
+bt.onclick=openS;x.onclick=closeS;
+o.addEventListener("click",function(e){if(e.target===o)closeS()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!o.hidden)closeS()});})();
 /* current weather (Naha) */
 var NOWURL="https://api.open-meteo.com/v1/forecast?latitude=26.2124&longitude=127.6809&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m&wind_speed_unit=ms&timezone=Asia%2FTokyo";
 var IC={
